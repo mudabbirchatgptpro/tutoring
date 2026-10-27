@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Tutoring with Mudaber</title>
+<meta name="description" content="Math and reading tutoring for grades 3 to 7 in the Boston area. One hour with a learning specialist plus an adaptive practice engine. First session free.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root { --sage:#5E876C; --coral:#E8826A; --cream:#F8F4ED; --ink:#2F2B28; --muted:#6B645E; --card:#FFFFFF; --line:#E4DDD2; }
+  @media (prefers-color-scheme: dark) {
+    :root { --cream:#1E1C1A; --ink:#F1ECE4; --muted:#B9B0A6; --card:#2A2725; --line:#3D3935; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--cream); color:var(--ink); font:17px/1.55 Inter, system-ui, sans-serif; }
+  main { max-width: 640px; margin: 0 auto; padding: 32px 16px 56px; }
+  h1, h2 { font-family: Fraunces, Georgia, serif; font-weight:500; line-height:1.2; }
+  h1 { font-size: 2rem; margin: 0 0 8px; }
+  h2 { font-size: 1.3rem; margin: 32px 0 8px; color: var(--sage); }
+  .sub { color: var(--muted); margin: 0 0 20px; }
+  .free { display:inline-block; background:var(--coral); color:#fff; font-weight:600; padding:6px 12px; border-radius:6px; }
+  ul { padding-left: 20px; } li { margin: 6px 0; }
+  form { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:20px; margin-top:12px; }
+  label { display:block; font-weight:600; margin:14px 0 4px; font-size:.95rem; }
+  input, select, textarea { width:100%; padding:10px; font:inherit; border:1px solid var(--line); border-radius:6px; background:var(--cream); color:var(--ink); }
+  .row { display:flex; gap:10px; flex-wrap:wrap; margin-top:18px; }
+  button { flex:1 1 200px; padding:12px; font:600 1rem Inter, sans-serif; border:0; border-radius:6px; cursor:pointer; color:#fff; background:var(--sage); }
+  button.alt { background:var(--coral); }
+  .note { color:var(--muted); font-size:.85rem; margin-top:12px; }
+  footer { margin-top:36px; color:var(--muted); font-size:.9rem; }
+  a { color: var(--sage); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Math and reading tutoring, grades 3 to 7</h1>
+  <p class="sub">Boston, Cambridge, Somerville and nearby towns, or online.</p>
+  <p><span class="free">The first session is free.</span></p>
+
+  <h2>Who I am</h2>
+  <p>I'm Mudaber Jamshaid. I'm a learning specialist in a Boston middle school, where I work with students who need a different way in, including students with IEPs and students learning English. I hold an Ed.M. in Learning Design, Innovation and Technology from the Harvard Graduate School of Education.</p>
+
+  <h2>What one hour looks like</h2>
+  <ul>
+    <li>About 40 minutes one on one with me, on the skill your child is stuck on.</li>
+    <li>About 15 minutes on a practice engine I built. It picks each next question from what your child got right and wrong, and it moves on only when a skill holds.</li>
+    <li>5 minutes with you: what we worked on and what comes next.</li>
+  </ul>
+  <p>Between sessions, your child can do short practice sets on the engine at home. I see the results before the next session.</p>
+
+  <h2>What I tutor</h2>
+  <ul>
+    <li>Math: fractions, percent, ratios, early algebra, geometry, word problems.</li>
+    <li>Reading and writing: vocabulary, spelling, reading for meaning, written answers.</li>
+    <li>ISEE practice for private-school admissions.</li>
+  </ul>
+
+  <h2>Ask for a free first session</h2>
+  <form id="f" onsubmit="return false">
+    <label for="p">Your name</label>
+    <input id="p" autocomplete="name" required>
+    <label for="c">Your phone or email</label>
+    <input id="c" autocomplete="email" required>
+    <label for="g">Child's grade</label>
+    <select id="g"><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>Other</option></select>
+    <label for="s">Subject</label>
+    <select id="s"><option>Math</option><option>Reading and writing</option><option>Both</option><option>ISEE practice</option></select>
+    <label for="t">Town</label>
+    <input id="t" autocomplete="address-level2">
+    <label for="w">Best days and times</label>
+    <textarea id="w" rows="2"></textarea>
+    <div class="row">
+      <button type="button" onclick="go('sms')">Send by text</button>
+      <button type="button" class="alt" onclick="go('mail')">Send by email</button>
+    </div>
+    <p class="note">This page stores nothing. The button opens your own text or email app with your answers filled in.</p>
+  </form>
+
+  <footer>Mudaber Jamshaid · (617) 821-8529 · <a href="mailto:mudaber.jamshaid@gmail.com">mudaber.jamshaid@gmail.com</a></footer>
+</main>
+<script>
+function go(kind) {
+  var v = function (id) { return document.getElementById(id).value.trim(); };
+  if (!v('p') || !v('c')) { alert('Please add your name and a phone or email.'); return; }
+  var body = 'Hi Mudaber, I would like a free first session.\n' +
+    'Name: ' + v('p') + '\nContact: ' + v('c') + '\nGrade: ' + v('g') +
+    '\nSubject: ' + v('s') + '\nTown: ' + v('t') + '\nBest times: ' + v('w');
+  if (kind === 'sms') {
+    location.href = 'sms:+16178218529?&body=' + encodeURIComponent(body);
+  } else {
+    location.href = 'mailto:mudaber.jamshaid@gmail.com?subject=' +
+      encodeURIComponent('Free first session') + '&body=' + encodeURIComponent(body);
+  }
+}
+</script>
+</body>
+</html>
