@@ -103,9 +103,18 @@
     try {
       if (q.get('me') === '1') localStorage.setItem('qurios_me', '1');
       if (q.get('me') === '0') localStorage.removeItem('qurios_me');
-      if (localStorage.getItem('qurios_me') === '1') return;
+      if (localStorage.getItem('qurios_me') === '1' && q.get('me') !== 'tag') return;
     } catch (e) {}
     if (navigator.webdriver) return;
+    /* ?me=tag: record this one visit labelled as the owner, so Clarity's user ID
+       for this browser can be matched against earlier visits; then skip as owner. */
+    if (q.get('me') === 'tag') {
+      window.clarity = window.clarity || function(){(window.clarity.q=window.clarity.q||[]).push(arguments)};
+      clarity('identify', 'mudaber-owner');
+      clarity('set', 'owner', 'yes');
+      clarity('event', 'owner_tag');
+      try { localStorage.setItem('qurios_me', '1'); } catch (e) {}
+    }
     (function(c,l,a,r,i,t,y){
       c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
       t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
