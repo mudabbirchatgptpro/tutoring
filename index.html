@@ -94,12 +94,27 @@
     section { padding-top:56px; }
   }
 </style>
-<script type="text/javascript">
-  (function(c,l,a,r,i,t,y){
-    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-  })(window, document, "clarity", "script", "z988c3bqzd");
+<script>
+  /* Analytics: Microsoft Clarity.
+     Skip owner devices (open qurios.io/?me=1 once per device; ?me=0 undoes it)
+     and automated browsers. */
+  (function () {
+    var q = new URLSearchParams(location.search);
+    try {
+      if (q.get('me') === '1') localStorage.setItem('qurios_me', '1');
+      if (q.get('me') === '0') localStorage.removeItem('qurios_me');
+      if (localStorage.getItem('qurios_me') === '1') return;
+    } catch (e) {}
+    if (navigator.webdriver) return;
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "z988c3bqzd");
+  })();
+  function bookClick(where) {
+    if (window.clarity) { clarity('event', 'book_click'); clarity('set', 'book_button', where); }
+  }
 </script>
 </head>
 <body>
@@ -107,7 +122,7 @@
 
   <header class="top">
     <a class="brand" href="#">Quri<span>os</span></a>
-    <a class="small" href="https://docs.google.com/forms/d/e/1FAIpQLSfi9NXaEl0xcJkUJMf3XsGBVOvfTf7HJId_p4HGYDXN9smL1A/viewform" target="_blank" rel="noopener">Book a meeting</a>
+    <a class="small" href="https://docs.google.com/forms/d/e/1FAIpQLSfi9NXaEl0xcJkUJMf3XsGBVOvfTf7HJId_p4HGYDXN9smL1A/viewform" target="_blank" rel="noopener" onclick="bookClick('top_bar')">Book a meeting</a>
   </header>
 
   <div class="hero">
@@ -117,7 +132,7 @@
     <h1>Teacher-led tutoring with AI</h1>
     <p class="tag">Kids build, play and learn alongside the tutor.</p>
     <p class="lead">Your child and the teacher build real things together with AI: games, apps and projects your child loves. Along the way, they learn the math, reading and writing it takes to make them work.</p>
-    <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfi9NXaEl0xcJkUJMf3XsGBVOvfTf7HJId_p4HGYDXN9smL1A/viewform" target="_blank" rel="noopener">Book a free first meeting</a>
+    <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfi9NXaEl0xcJkUJMf3XsGBVOvfTf7HJId_p4HGYDXN9smL1A/viewform" target="_blank" rel="noopener" onclick="bookClick('hero')">Book a free first meeting</a>
     <span class="btn-note">A short form, about 1 to 2 minutes</span>
    </div>
    <div class="loop" aria-hidden="true">
@@ -189,7 +204,7 @@
     <div class="cta">
       <h2>Book a free first meeting</h2>
       <p>Tell us a little about your child. We'll reach out to find a time.</p>
-      <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfi9NXaEl0xcJkUJMf3XsGBVOvfTf7HJId_p4HGYDXN9smL1A/viewform" target="_blank" rel="noopener">Book a free first meeting</a>
+      <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfi9NXaEl0xcJkUJMf3XsGBVOvfTf7HJId_p4HGYDXN9smL1A/viewform" target="_blank" rel="noopener" onclick="bookClick('bottom')">Book a free first meeting</a>
     </div>
   </section>
 
