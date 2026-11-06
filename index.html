@@ -4,8 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Tutoring with Mudaber</title>
-<meta name="description" content="Math and reading tutoring for grades 3 to 7 in the Boston area. One hour with a learning specialist plus an adaptive practice engine. First session free.">
+<title>Qurios: Teacher-led tutoring with AI, Grades 3 to 8</title>
+<meta name="description" content="Teacher-led tutoring with AI for grades 3 to 8, around Boston or online. Kids build, play and learn alongside their teacher. Book a free first meeting.">
+<meta property="og:title" content="Qurios: Teacher-led tutoring with AI, Grades 3 to 8">
+<meta property="og:description" content="Kids build, play and learn alongside their teacher.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 <style>
@@ -14,14 +16,24 @@
     :root { --cream:#1E1C1A; --ink:#F1ECE4; --muted:#B9B0A6; --card:#2A2725; --line:#3D3935; }
   }
   * { box-sizing: border-box; }
-  body { margin:0; background:var(--cream); color:var(--ink); font:17px/1.55 Inter, system-ui, sans-serif; }
-  main { max-width: 640px; margin: 0 auto; padding: 32px 16px 56px; }
-  h1, h2 { font-family: Fraunces, Georgia, serif; font-weight:500; line-height:1.2; }
-  h1 { font-size: 2rem; margin: 0 0 8px; }
-  h2 { font-size: 1.3rem; margin: 32px 0 8px; color: var(--sage); }
-  .sub { color: var(--muted); margin: 0 0 20px; }
-  .free { display:inline-block; background:var(--coral); color:#fff; font-weight:600; padding:6px 12px; border-radius:6px; }
-  ul { padding-left: 20px; } li { margin: 6px 0; }
+  body { margin:0; background:var(--cream); color:var(--ink); font:17px/1.6 Inter, system-ui, sans-serif; }
+  main { max-width: 680px; margin: 0 auto; padding: 28px 18px 56px; }
+  h1, h2, h3, .brand { font-family: Fraunces, Georgia, serif; font-weight:500; line-height:1.2; }
+  .brand { font-size:1.4rem; color:var(--sage); margin:0 0 28px; }
+  .brand span { color:var(--coral); }
+  h1 { font-size: 2.1rem; margin: 0 0 10px; }
+  .tag { font-size:1.2rem; margin:0 0 18px; }
+  h2 { font-size: 1.35rem; margin: 40px 0 10px; color: var(--sage); }
+  h3 { font-size: 1.08rem; margin: 0 0 6px; }
+  .trust { background:var(--card); border-left:4px solid var(--coral); padding:12px 16px; border-radius:6px; margin:0 0 22px; }
+  .cta { display:inline-block; background:var(--sage); color:#fff; text-decoration:none; font-weight:600; padding:12px 22px; border-radius:6px; }
+  ol, ul { padding-left: 22px; } li { margin: 6px 0; }
+  .grid { display:grid; grid-template-columns: 1fr 1fr; gap:12px; }
+  @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } h1 { font-size:1.75rem; } }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px; }
+  .card p { margin:0; color:var(--muted); }
+  .edu { border-top:1px solid var(--line); margin-top:44px; padding-top:4px; }
+  .edu p, .edu li { color:var(--muted); }
   form { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:20px; margin-top:12px; }
   label { display:block; font-weight:600; margin:14px 0 4px; font-size:.95rem; }
   input, select, textarea { width:100%; padding:10px; font:inherit; border:1px solid var(--line); border-radius:6px; background:var(--cream); color:var(--ink); }
@@ -29,44 +41,60 @@
   button { flex:1 1 200px; padding:12px; font:600 1rem Inter, sans-serif; border:0; border-radius:6px; cursor:pointer; color:#fff; background:var(--sage); }
   button.alt { background:var(--coral); }
   .note { color:var(--muted); font-size:.85rem; margin-top:12px; }
-  footer { margin-top:36px; color:var(--muted); font-size:.9rem; }
+  footer { margin-top:40px; color:var(--muted); font-size:.9rem; }
   a { color: var(--sage); }
 </style>
 </head>
 <body>
 <main>
-  <h1>Math and reading tutoring, grades 3 to 7</h1>
-  <p class="sub">Boston, Cambridge, Somerville and nearby towns, or online.</p>
-  <p><span class="free">The first session is free.</span></p>
+  <p class="brand">Quri<span>os</span></p>
 
-  <h2>Who I am</h2>
-  <p>I'm Mudaber Jamshaid. I'm a learning specialist in a Boston middle school, where I work with students who need a different way in, including students with IEPs and students learning English. I hold an Ed.M. in Learning Design, Innovation and Technology from the Harvard Graduate School of Education.</p>
+  <h1>Teacher-led tutoring with AI, Grades&nbsp;3&nbsp;to&nbsp;8</h1>
+  <p class="tag">Kids build, play and learn alongside their teacher.</p>
 
-  <h2>What one hour looks like</h2>
+  <p class="trust">A real teacher sits beside your child every session. The teacher uses AI to design each lesson around your child. AI gives hints, never answers.</p>
+
+  <a class="cta" href="#book">Book a free first meeting</a>
+
+  <h2>How it works</h2>
+  <ol>
+    <li>We meet you to understand what your child needs.</li>
+    <li>We get to know your child and what they love.</li>
+    <li>We design and teach every session to make learning fun.</li>
+  </ol>
+
+  <h2>What a session looks like</h2>
+  <p>Say your child loves soccer. Their teacher builds a soccer game around this week's math, and your child scores only when the math is right. They build it, play it and fix it together, with the teacher guiding every step.</p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Grades 3 to 5</h3>
+      <p>Reading, writing and number sense, made fun enough that kids ask for more.</p>
+    </div>
+    <div class="card">
+      <h3>Grades 6 to 8</h3>
+      <p>Pre-algebra, stronger writing and getting ready for what comes next.</p>
+    </div>
+  </div>
+
+  <h2>What you get</h2>
   <ul>
-    <li>About 40 minutes one on one with me, on the skill your child is stuck on.</li>
-    <li>About 15 minutes on a practice engine I built. It picks each next question from what your child got right and wrong, and it moves on only when a skill holds.</li>
-    <li>5 minutes with you: what we worked on and what comes next.</li>
-  </ul>
-  <p>Between sessions, your child can do short practice sets on the engine at home. I see the results before the next session.</p>
-
-  <h2>What I tutor</h2>
-  <ul>
-    <li>Math: fractions, percent, ratios, early algebra, geometry, word problems.</li>
-    <li>Reading and writing: vocabulary, spelling, reading for meaning, written answers.</li>
-    <li>ISEE practice for private-school admissions.</li>
+    <li>Lessons built around your child's needs and interests</li>
+    <li>Clear progress reports, so you see what they learned and what's next</li>
+    <li>You choose how much AI your child uses: full, teacher-only or none</li>
+    <li>In person around Boston or online</li>
   </ul>
 
-  <h2>Ask for a free first session</h2>
+  <h2 id="book">Book a free first meeting</h2>
   <form id="f" onsubmit="return false">
     <label for="p">Your name</label>
     <input id="p" autocomplete="name" required>
     <label for="c">Your phone or email</label>
     <input id="c" autocomplete="email" required>
     <label for="g">Child's grade</label>
-    <select id="g"><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>Other</option></select>
+    <select id="g"><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>Other</option></select>
     <label for="s">Subject</label>
-    <select id="s"><option>Math</option><option>Reading and writing</option><option>Both</option><option>ISEE practice</option></select>
+    <select id="s"><option>Math</option><option>Reading and writing</option><option>Both</option><option>Not sure yet</option></select>
     <label for="t">Town</label>
     <input id="t" autocomplete="address-level2">
     <label for="w">Best days and times</label>
@@ -78,20 +106,32 @@
     <p class="note">This page stores nothing. The button opens your own text or email app with your answers filled in.</p>
   </form>
 
-  <footer>Mudaber Jamshaid · (617) 821-8529 · <a href="mailto:mudaber.jamshaid@gmail.com">mudaber.jamshaid@gmail.com</a></footer>
+  <section class="edu">
+    <h2>For educators and researchers</h2>
+    <p>Qurios is a team of Harvard-graduate educators building on one design: a human teacher leads, and AI works for the teacher, not in place of the child's thinking. The design draws on four lines of work:</p>
+    <ul>
+      <li>Hybrid human-AI tutoring, where tutors and software work together (Thomas, Aleven, Koedinger et al., <a href="https://arxiv.org/abs/2312.11274">LAK 2024</a>)</li>
+      <li>AI support for the human tutor, from Stanford's Tutor CoPilot trial (Wang, Demszky et al., <a href="https://arxiv.org/abs/2410.03017">2024</a>)</li>
+      <li>Hints, not answers: open AI access hurt learning while guardrailed hints avoided most of the harm (Bastani et al., PNAS)</li>
+      <li>Learning by building things children care about (Papert, Resnick)</li>
+    </ul>
+    <p>Led by Mudaber Jamshaid, Ed.M., Harvard Graduate School of Education '24, a learning specialist at a Boston middle school. I would welcome your thoughts: <a href="mailto:mudaber.jamshaid@gmail.com">mudaber.jamshaid@gmail.com</a></p>
+  </section>
+
+  <footer>Qurios · Mudaber Jamshaid · (617) 821-8529 · <a href="mailto:mudaber.jamshaid@gmail.com">mudaber.jamshaid@gmail.com</a></footer>
 </main>
 <script>
 function go(kind) {
   var v = function (id) { return document.getElementById(id).value.trim(); };
   if (!v('p') || !v('c')) { alert('Please add your name and a phone or email.'); return; }
-  var body = 'Hi Mudaber, I would like a free first session.\n' +
+  var body = 'Hi Mudaber, I would like to book a free first meeting about Qurios tutoring.\n' +
     'Name: ' + v('p') + '\nContact: ' + v('c') + '\nGrade: ' + v('g') +
     '\nSubject: ' + v('s') + '\nTown: ' + v('t') + '\nBest times: ' + v('w');
   if (kind === 'sms') {
     location.href = 'sms:+16178218529?&body=' + encodeURIComponent(body);
   } else {
     location.href = 'mailto:mudaber.jamshaid@gmail.com?subject=' +
-      encodeURIComponent('Free first session') + '&body=' + encodeURIComponent(body);
+      encodeURIComponent('Free first meeting: Qurios') + '&body=' + encodeURIComponent(body);
   }
 }
 </script>
