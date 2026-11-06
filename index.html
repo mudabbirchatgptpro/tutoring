@@ -4,136 +4,189 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
+<meta name="color-scheme" content="light">
 <title>Qurios: Teacher-led tutoring with AI, Grades 3 to 8</title>
-<meta name="description" content="Teacher-led tutoring with AI for grades 3 to 8, around Boston or online. Kids build, play and learn alongside their teacher. Book a free first meeting.">
+<meta name="description" content="Teacher-led tutoring with AI for grades 3 to 8, around Boston or online. Kids and their teacher build games and apps with AI, and learn along the way.">
 <meta property="og:title" content="Qurios: Teacher-led tutoring with AI, Grades 3 to 8">
 <meta property="og:description" content="Kids build, play and learn alongside their teacher.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root { --sage:#5E876C; --coral:#E8826A; --cream:#F8F4ED; --ink:#2F2B28; --muted:#6B645E; --card:#FFFFFF; --line:#E4DDD2; }
-  @media (prefers-color-scheme: dark) {
-    :root { --cream:#1E1C1A; --ink:#F1ECE4; --muted:#B9B0A6; --card:#2A2725; --line:#3D3935; }
+  :root {
+    --bg:#FBF7F1; --paper:#FFFFFF; --ink:#2B2724; --muted:#6A625B; --line:#EDE5DA;
+    --sage:#4E7A5D; --sage-soft:#E9F1EA; --coral:#DD7558; --coral-dark:#C9644A; --peach:#FCEEE4;
   }
-  * { box-sizing: border-box; }
-  body { margin:0; background:var(--cream); color:var(--ink); font:17px/1.6 Inter, system-ui, sans-serif; }
-  main { max-width: 680px; margin: 0 auto; padding: 28px 18px 56px; }
-  h1, h2, h3, .brand { font-family: Fraunces, Georgia, serif; font-weight:500; line-height:1.2; }
-  .brand { font-size:1.4rem; color:var(--sage); margin:0 0 28px; }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.65 Inter, system-ui, sans-serif; -webkit-font-smoothing:antialiased; }
+  h1, h2, h3, .brand { font-family:Fraunces, Georgia, serif; font-weight:500; line-height:1.15; letter-spacing:-0.01em; }
+  a { color:var(--sage); }
+  .wrap { max-width:1000px; margin:0 auto; padding:0 24px; }
+
+  /* Top bar */
+  .top { display:flex; align-items:center; justify-content:space-between; padding:22px 0; }
+  .brand { font-size:1.6rem; font-weight:600; color:var(--sage); text-decoration:none; }
   .brand span { color:var(--coral); }
-  h1 { font-size: 2.1rem; margin: 0 0 10px; }
-  .tag { font-size:1.2rem; margin:0 0 18px; }
-  h2 { font-size: 1.35rem; margin: 40px 0 10px; color: var(--sage); }
-  h3 { font-size: 1.08rem; margin: 0 0 6px; }
-  .trust { background:var(--card); border-left:4px solid var(--coral); padding:12px 16px; border-radius:6px; margin:0 0 22px; }
-  .cta { display:inline-block; background:var(--sage); color:#fff; text-decoration:none; font-weight:600; padding:12px 22px; border-radius:6px; }
-  ol, ul { padding-left: 22px; } li { margin: 6px 0; }
-  .grid { display:grid; grid-template-columns: 1fr 1fr; gap:12px; }
-  @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } h1 { font-size:1.75rem; } }
-  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px; }
+  .top a.small { font-weight:600; font-size:.95rem; text-decoration:none; color:var(--ink); border:1px solid var(--line); background:var(--paper); padding:8px 16px; border-radius:999px; }
+
+  /* Hero */
+  .hero { background:linear-gradient(135deg, var(--peach) 0%, #FBF3EA 45%, var(--sage-soft) 100%); border-radius:28px; padding:64px 56px; margin:4px 0 0; }
+  .pill { display:inline-block; background:var(--paper); color:var(--sage); font-weight:600; font-size:.88rem; padding:6px 14px; border-radius:999px; margin-bottom:20px; box-shadow:0 1px 2px rgba(0,0,0,.04); }
+  .hero h1 { font-size:3.1rem; margin:0 0 14px; max-width:14ch; }
+  .hero .tag { font-size:1.35rem; margin:0 0 14px; color:var(--ink); }
+  .hero .lead { color:var(--muted); max-width:52ch; margin:0 0 30px; }
+  .btn { display:inline-block; background:var(--coral); color:#fff; text-decoration:none; font-weight:600; padding:15px 28px; border-radius:999px; box-shadow:0 6px 18px rgba(221,117,88,.28); transition:background .15s, transform .15s; }
+  .btn:hover { background:var(--coral-dark); transform:translateY(-1px); }
+  .btn-note { display:block; margin-top:12px; font-size:.88rem; color:var(--muted); }
+
+
+  .hero-grid { display:grid; grid-template-columns:1.25fr 1fr; gap:40px; align-items:center; }
+  .loop { background:rgba(255,255,255,.75); border:1px solid var(--line); border-radius:22px; padding:22px; box-shadow:0 10px 30px rgba(60,40,20,.06); }
+  .loop .step { display:flex; align-items:center; gap:14px; background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:14px 16px; margin:10px 0; font-weight:500; }
+  .loop .step:first-child { margin-top:0; } .loop .step:last-child { margin-bottom:0; }
+  .loop .dot { width:38px; height:38px; flex:0 0 38px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; }
+  .loop .d1 { background:var(--peach); } .loop .d2 { background:var(--sage-soft); }
+  .loop small { display:block; color:var(--muted); font-weight:400; font-size:.86rem; }
+
+  /* Sections */
+  section { padding:72px 0 0; }
+  .eyebrow { color:var(--coral); font-weight:600; font-size:.85rem; letter-spacing:.08em; text-transform:uppercase; margin:0 0 8px; }
+  h2 { font-size:2.1rem; margin:0 0 28px; }
+  .grid3 { display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; }
+  .card { background:var(--paper); border:1px solid var(--line); border-radius:20px; padding:28px; box-shadow:0 2px 10px rgba(60,40,20,.04); }
+  .card h3 { font-size:1.2rem; margin:0 0 8px; }
   .card p { margin:0; color:var(--muted); }
-  .edu { border-top:1px solid var(--line); margin-top:44px; padding-top:4px; }
-  .edu p, .edu li { color:var(--muted); }
-  form { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:20px; margin-top:12px; }
-  label { display:block; font-weight:600; margin:14px 0 4px; font-size:.95rem; }
-  input, select, textarea { width:100%; padding:10px; font:inherit; border:1px solid var(--line); border-radius:6px; background:var(--cream); color:var(--ink); }
-  .row { display:flex; gap:10px; flex-wrap:wrap; margin-top:18px; }
-  button { flex:1 1 200px; padding:12px; font:600 1rem Inter, sans-serif; border:0; border-radius:6px; cursor:pointer; color:#fff; background:var(--sage); }
-  button.alt { background:var(--coral); }
-  .note { color:var(--muted); font-size:.85rem; margin-top:12px; }
-  footer { margin-top:40px; color:var(--muted); font-size:.9rem; }
-  a { color: var(--sage); }
+  .num { display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:50%; background:var(--sage-soft); color:var(--sage); font-weight:600; margin-bottom:16px; }
+  .icon { font-size:1.6rem; margin-bottom:12px; display:block; }
+
+  .build { display:grid; grid-template-columns:1.1fr 1fr; gap:40px; align-items:center; background:var(--paper); border:1px solid var(--line); border-radius:28px; padding:48px; }
+  .build p { color:var(--muted); margin:0 0 14px; }
+  .chips { display:flex; flex-wrap:wrap; gap:10px; }
+  .chip { background:var(--bg); border:1px solid var(--line); border-radius:999px; padding:10px 18px; font-weight:500; }
+  .chip.c1 { background:var(--peach); border-color:#F5DCCB; }
+  .chip.c2 { background:var(--sage-soft); border-color:#D6E5D9; }
+
+  .grades { text-align:center; }
+  .grades .big { font-family:Fraunces, Georgia, serif; font-size:2.4rem; margin:0; }
+  .grades .big span { color:var(--coral); }
+
+  .cta { text-align:center; background:linear-gradient(135deg, var(--sage-soft), var(--peach)); border-radius:28px; padding:56px 32px; }
+  .cta h2 { margin-bottom:12px; }
+  .cta p { color:var(--muted); margin:0 0 28px; }
+
+  .edu { border-top:1px solid var(--line); margin-top:80px; padding-top:48px; }
+  .edu h2 { font-size:1.5rem; margin-bottom:12px; }
+  .edu p, .edu li { color:var(--muted); font-size:.98rem; }
+  .edu ul { padding-left:20px; margin:0; }
+  .edu li { margin:6px 0; }
+
+  footer { padding:40px 0 48px; color:var(--muted); font-size:.9rem; }
+  footer .brand { font-size:1.15rem; }
+
+  @media (max-width: 760px) {
+    .hero { padding:44px 26px; border-radius:22px; }
+    .hero h1 { font-size:2.25rem; }
+    .hero .tag { font-size:1.15rem; }
+    .grid3 { grid-template-columns:1fr; }
+    .hero-grid { grid-template-columns:1fr; gap:32px; }
+    .build { grid-template-columns:1fr; padding:30px 24px; gap:24px; }
+    h2 { font-size:1.7rem; }
+    .grades .big { font-size:1.8rem; }
+    section { padding-top:56px; }
+  }
 </style>
 </head>
 <body>
-<main>
-  <p class="brand">Quri<span>os</span></p>
+<div class="wrap">
 
-  <h1>Teacher-led tutoring with AI, Grades&nbsp;3&nbsp;to&nbsp;8</h1>
-  <p class="tag">Kids build, play and learn alongside their teacher.</p>
+  <header class="top">
+    <a class="brand" href="#">Quri<span>os</span></a>
+    <a class="small" href="https://docs.google.com/forms/d/e/1FAIpQLSfi9NXaEl0xcJkUJMf3XsGBVOvfTf7HJId_p4HGYDXN9smL1A/viewform" target="_blank" rel="noopener">Book a meeting</a>
+  </header>
 
-  <p class="trust">A real teacher sits beside your child every session. The teacher uses AI to design each lesson around your child. AI gives hints, never answers.</p>
-
-  <a class="cta" href="#book">Book a free first meeting</a>
-
-  <h2>How it works</h2>
-  <ol>
-    <li>We meet you to understand what your child needs.</li>
-    <li>We get to know your child and what they love.</li>
-    <li>We design and teach every session to make learning fun.</li>
-  </ol>
-
-  <h2>What a session looks like</h2>
-  <p>Say your child loves soccer. Their teacher builds a soccer game around this week's math, and your child scores only when the math is right. They build it, play it and fix it together, with the teacher guiding every step.</p>
-
-  <div class="grid">
-    <div class="card">
-      <h3>Grades 3 to 5</h3>
-      <p>Reading, writing and number sense, made fun enough that kids ask for more.</p>
-    </div>
-    <div class="card">
-      <h3>Grades 6 to 8</h3>
-      <p>Pre-algebra, stronger writing and getting ready for what comes next.</p>
-    </div>
+  <div class="hero">
+   <div class="hero-grid">
+   <div>
+    <span class="pill">Grades 3 to 8 · Around Boston or online</span>
+    <h1>Teacher-led tutoring with AI</h1>
+    <p class="tag">Kids build, play and learn alongside their teacher.</p>
+    <p class="lead">Your child and their teacher build real things together with AI: games, apps and projects your child cares about. Along the way, they learn the math, reading and writing it takes to make them work.</p>
+    <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfi9NXaEl0xcJkUJMf3XsGBVOvfTf7HJId_p4HGYDXN9smL1A/viewform" target="_blank" rel="noopener">Book a free first meeting</a>
+    <span class="btn-note">A short form, about 1 to 2 minutes</span>
+   </div>
+   <div class="loop" aria-hidden="true">
+     <div class="step"><span class="dot d1">🎨</span><div>Pick an idea<small>Something your child loves</small></div></div>
+     <div class="step"><span class="dot d2">🛠️</span><div>Build it with AI<small>Teacher and child, side by side</small></div></div>
+     <div class="step"><span class="dot d1">➗</span><div>Learn what it takes<small>Math, reading and writing</small></div></div>
+     <div class="step"><span class="dot d2">🎮</span><div>Play and improve<small>Test it, fix it, make it better</small></div></div>
+   </div>
+   </div>
   </div>
 
-  <h2>What you get</h2>
-  <ul>
-    <li>Lessons built around your child's needs and interests</li>
-    <li>Clear progress reports, so you see what they learned and what's next</li>
-    <li>You choose how much AI your child uses: full, teacher-only or none</li>
-    <li>In person around Boston or online</li>
-  </ul>
-
-  <h2 id="book">Book a free first meeting</h2>
-  <form id="f" onsubmit="return false">
-    <label for="p">Your name</label>
-    <input id="p" autocomplete="name" required>
-    <label for="c">Your phone or email</label>
-    <input id="c" autocomplete="email" required>
-    <label for="g">Child's grade</label>
-    <select id="g"><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>Other</option></select>
-    <label for="s">Subject</label>
-    <select id="s"><option>Math</option><option>Reading and writing</option><option>Both</option><option>Not sure yet</option></select>
-    <label for="t">Town</label>
-    <input id="t" autocomplete="address-level2">
-    <label for="w">Best days and times</label>
-    <textarea id="w" rows="2"></textarea>
-    <div class="row">
-      <button type="button" onclick="go('sms')">Send by text</button>
-      <button type="button" class="alt" onclick="go('mail')">Send by email</button>
+  <section>
+    <p class="eyebrow">How it works</p>
+    <h2>Three simple steps</h2>
+    <div class="grid3">
+      <div class="card"><span class="num">1</span><h3>We meet you</h3><p>We listen to understand what your child needs.</p></div>
+      <div class="card"><span class="num">2</span><h3>We meet your child</h3><p>We get to know your child and what they love.</p></div>
+      <div class="card"><span class="num">3</span><h3>We build together</h3><p>Teacher and child build with AI every session, and learn along the way.</p></div>
     </div>
-    <p class="note">This page stores nothing. The button opens your own text or email app with your answers filled in.</p>
-  </form>
-
-  <section class="edu">
-    <h2>For educators and researchers</h2>
-    <p>Qurios is a team of Harvard-graduate educators building on one design: a human teacher leads, and AI works for the teacher, not in place of the child's thinking. The design draws on four lines of work:</p>
-    <ul>
-      <li>Hybrid human-AI tutoring, where tutors and software work together (Thomas, Aleven, Koedinger et al., <a href="https://arxiv.org/abs/2312.11274">LAK 2024</a>)</li>
-      <li>AI support for the human tutor, from Stanford's Tutor CoPilot trial (Wang, Demszky et al., <a href="https://arxiv.org/abs/2410.03017">2024</a>)</li>
-      <li>Hints, not answers: open AI access hurt learning while guardrailed hints avoided most of the harm (Bastani et al., PNAS)</li>
-      <li>Learning by building things children care about (Papert, Resnick)</li>
-    </ul>
-    <p>Led by Mudaber Jamshaid, Ed.M., Harvard Graduate School of Education '24, a learning specialist at a Boston middle school. I would welcome your thoughts: <a href="mailto:mudaber.jamshaid@gmail.com">mudaber.jamshaid@gmail.com</a></p>
   </section>
 
-  <footer>Qurios · Mudaber Jamshaid · (617) 821-8529 · <a href="mailto:mudaber.jamshaid@gmail.com">mudaber.jamshaid@gmail.com</a></footer>
-</main>
-<script>
-function go(kind) {
-  var v = function (id) { return document.getElementById(id).value.trim(); };
-  if (!v('p') || !v('c')) { alert('Please add your name and a phone or email.'); return; }
-  var body = 'Hi Mudaber, I would like to book a free first meeting about Qurios tutoring.\n' +
-    'Name: ' + v('p') + '\nContact: ' + v('c') + '\nGrade: ' + v('g') +
-    '\nSubject: ' + v('s') + '\nTown: ' + v('t') + '\nBest times: ' + v('w');
-  if (kind === 'sms') {
-    location.href = 'sms:+16178218529?&body=' + encodeURIComponent(body);
-  } else {
-    location.href = 'mailto:mudaber.jamshaid@gmail.com?subject=' +
-      encodeURIComponent('Free first meeting: Qurios') + '&body=' + encodeURIComponent(body);
-  }
-}
-</script>
+  <section>
+    <div class="build">
+      <div>
+        <p class="eyebrow">What a session looks like</p>
+        <h2 style="margin-bottom:16px">Learning by building</h2>
+        <p>Your child picks something they care about. Side by side, they and their teacher build it with AI, then play it, test it and make it better.</p>
+        <p>Every step takes real thinking: the math behind the score, the words on the screen, the story that ties it together. That's where the learning happens.</p>
+      </div>
+      <div class="chips">
+        <span class="chip c1">🎮 Games</span>
+        <span class="chip c2">📱 Apps</span>
+        <span class="chip">📖 Stories</span>
+        <span class="chip c2">🧩 Puzzles</span>
+        <span class="chip c1">🔬 Projects</span>
+        <span class="chip">✨ Whatever they dream up</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="grades">
+    <p class="big">Grades 3 to 8 · <span>Making learning fun</span></p>
+  </section>
+
+  <section>
+    <p class="eyebrow">What you get</p>
+    <h2>What your child gains</h2>
+    <div class="grid3">
+      <div class="card"><span class="icon">🎯</span><h3>Learning built for them</h3><p>Every session is shaped around your child's needs and interests.</p></div>
+      <div class="card"><span class="icon">📈</span><h3>Clear progress reports</h3><p>You see what they learned and what comes next.</p></div>
+      <div class="card"><span class="icon">🤖</span><h3>AI skills for the next decade</h3><p>Your child learns to build with AI, a skill that will be essential in the years ahead.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="cta">
+      <h2>Book a free first meeting</h2>
+      <p>Tell us a little about your child. We'll reach out to find a time.</p>
+      <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfi9NXaEl0xcJkUJMf3XsGBVOvfTf7HJId_p4HGYDXN9smL1A/viewform" target="_blank" rel="noopener">Book a free first meeting</a>
+    </div>
+  </section>
+
+  <div class="edu">
+    <h2>For educators and researchers</h2>
+    <p>Qurios is a team of Harvard-graduate educators. Our design: a teacher and a child build with AI together, and learning happens through the building. It draws on three lines of work:</p>
+    <ul>
+      <li>Learning by building things children care about (Papert, Resnick)</li>
+      <li>Hybrid human-AI tutoring, where tutors and software work together (Thomas, Aleven, Koedinger et al., <a href="https://arxiv.org/abs/2312.11274">LAK 2024</a>)</li>
+      <li>AI support for the human tutor, from Stanford's Tutor CoPilot trial (Wang, Demszky et al., <a href="https://arxiv.org/abs/2410.03017">2024</a>)</li>
+    </ul>
+  </div>
+
+  <footer><span class="brand">Quri<span style="color:var(--coral)">os</span></span> · Teacher-led tutoring with AI · Boston</footer>
+
+</div>
 </body>
 </html>
